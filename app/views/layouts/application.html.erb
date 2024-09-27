@@ -18,6 +18,16 @@
   </head>
 
   <body>
+    <div class="bg-light d-flex justify-content-between m-2">
+      <div class="logo"><i class="fa-regular fa-face-grin-stars"></i> MOVIES <i class="fa-solid fa-video"></i> </div>
+      <%# <%= image_tag "/Users/darcyluo/code/darcyluojt/rails-watch-list/app/assets/images/logo.jpg", alt: "movie logo", width: 200 %>
+      <div>
+        <%= link_to "create my list", new_list_path %>
+        <%= link_to 'Home', lists_path %>
+      </div>
+    </div>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>

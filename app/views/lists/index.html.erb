@@ -1,0 +1,14 @@
+<h1>Your to-watch-list awaits</h1>
+
+<% @lists.each do |list| %>
+<h2><%= link_to list.name, list_path(list) %></h2>
+<p><%= list.movies.length %> movies</p>
+<div class="row">
+  <% list.movies.each do |movie|  %>
+  <div class="col-3 card">
+    <h3 class="text-center"><%= movie.title %></h3>
+    <p class="text-center"><strong>Rating: <%= movie.rating %></strong></p>
+  </div>
+  <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<h1><%= @list.name%></h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+<%= link_to 'add a movie', new_list_bookmark_path(@list) %>
+<div class="row">
+<%  @list.movies.each do |movie|%>
+<div class="col-3 card p-2 m-2">
+    <%= image_tag movie.poster_url, width: 300 %>
+    <h3 class="text-center"><%= movie.title %></h3>
+    <p class="text-center"><strong>Rating: <%= movie.rating %></strong></p>
+    <span class="text-secondary"><%= movie.overview %></span>
+    <% movie.bookmarks.each do |bookmark| %>
+    <div class="bg-light d-flex justify-content-between">
+    <p><%= bookmark.comment %></p>
+    <p class='btn btn-danger'><%= link_to "Delete", bookmark, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+    </div>
+    <% end %>
+</div>
+<% end %>
+</div>
